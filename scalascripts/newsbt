@@ -1,0 +1,16 @@
+#! /bin/bash
+f=$(pwd) # 'pwd' is setting "present working directory"
+mkdir -p src/{main,test}/{scala,java,resources}
+mkdir -p project
+echo "resolvers += \"Scala-Tools Maven2 Snapshots Repository\" at \"http://scala-tools.org/repo-snapshots\"
+
+      addSbtPlugin(\"org.ensime\" % \"ensime-sbt-cmd\" % \"0.0.7\")" > project/plugins.sbt
+
+echo "object Main { 
+	def main(args: Array[String]) 
+		{ 
+			println(\"Salam, World!\") 
+		}
+ }" > src/main/scala/Main.scala
+
+# once in sbt shell, run 'ensime generate' to generate ensime project.
